@@ -8,20 +8,20 @@ public class PremiumAccount extends Account{
 
     @Override
     public void debit(BigDecimal amount) throws IllegalAccessException {
-        BigDecimal newBalance = balance.subtract(amount);
+        BigDecimal newBalance = getterBalance().subtract(amount);
         if(newBalance.compareTo(BigDecimal.ZERO) < 0){
             throw new IllegalAccessException("NO money!");
         }
         newBalance = newBalance.add(new BigDecimal("150.00"));
-        balance = newBalance;
-        operations.add("Debit " + amount.toString() + " and cashback is 150 tenge.");
+        setBalance(newBalance);
+        getOperations().add("Debit " + amount.toString() + " and cashback is 150 tenge.");
         optIndex++;
     }
     @Override
     public void paymentForService(){
-        BigDecimal newBalance = balance.subtract(new BigDecimal("4000.00"));
-        balance = newBalance;
-        operations.add("Payment for service: 4000");
+        BigDecimal newBalance = getterBalance().subtract(new BigDecimal("4000.00"));
+        setBalance(newBalance);
+        getOperations().add("Payment for service: 4000");
         optIndex++;
     }
     @Override
@@ -29,6 +29,6 @@ public class PremiumAccount extends Account{
         return balanceBuilder();
     }
     protected String balanceBuilder(){
-        return "Premuim User " + getOwner().getName() + " has " + balance.toString() + " tenge";
+        return "Premuim User " + getOwner().getName() + " has " + getterBalance().toString() + " tenge";
     }
 }

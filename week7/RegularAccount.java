@@ -8,13 +8,13 @@ public class RegularAccount extends Account {
 
     @Override
     public void debit(BigDecimal amount) throws IllegalAccessException {
-        BigDecimal newBalance = balance.subtract(amount);
+        BigDecimal newBalance = getterBalance().subtract(amount);
         if(newBalance.compareTo(BigDecimal.ZERO) < 0){
             throw new IllegalAccessException("NO money!");
         }
         newBalance = newBalance.subtract(new BigDecimal("30.00"));
-        balance = newBalance;
-        operations.add("Debit " + amount.toString() + " and commission is 30 tenge.");
-        optIndex++; 
+        setBalance(newBalance);
+        getOperations().add("Debit " + amount.toString() + " and commission is 30 tenge.");
+        optIndex++;
     }
 }

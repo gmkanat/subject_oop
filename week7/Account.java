@@ -6,8 +6,8 @@ public class Account {
     private String number;
     private String status;
     private Client owner;
-    BigDecimal balance;
-    List<String> operations;
+    private BigDecimal balance;
+    private List<String> operations;
     int optIndex;
 
     public Account(String number, String status, Client owner, BigDecimal balance) {
@@ -21,6 +21,10 @@ public class Account {
 
     public String getNumber() {
         return number;
+    }
+
+    public List<String> getOperations() {
+        return operations;
     }
 
     public String getStatus() {
@@ -41,6 +45,14 @@ public class Account {
     protected String balanceBuilder(){
         return "User "  + getOwner().getName() + " has " + balance.toString() + " tenge";
     }
+
+    public void setBalance(BigDecimal balance) {
+        this.balance = balance;
+    }
+    public BigDecimal getterBalance(){
+        return balance;
+    }
+
     public void credit(BigDecimal amount){
         balance = balance.add(amount);
         operations.add("Credit: " + amount.toString());
