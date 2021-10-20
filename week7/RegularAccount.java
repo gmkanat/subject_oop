@@ -15,6 +15,7 @@ public class RegularAccount extends Account {
         newBalance = newBalance.subtract(new BigDecimal("30.00"));
         setBalance(newBalance);
         getOperations().add("Debit " + amount.toString() + " and commission is 30 tenge.");
-        optIndex++;
+        setOptIndex(getOptIndex() + 1);
     }
+
 }

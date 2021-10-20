@@ -15,14 +15,14 @@ public class GoldenAccount extends Account{
         newBalance = newBalance.add(new BigDecimal("100.00"));
         setBalance(newBalance);
         getOperations().add("Debit " + amount.toString() + " and cashback is 100 tenge.");
-        optIndex++;
+        setOptIndex(getOptIndex() + 1);
     }
     @Override
     public void paymentForService(){
         BigDecimal newBalance = getterBalance().subtract(new BigDecimal("3000.00"));
         setBalance(newBalance);
         getOperations().add("Payment for service: 3000");
-        optIndex++;
+        setOptIndex(getOptIndex() + 1);
     }
     @Override
     public String getBalance() {

@@ -8,7 +8,7 @@ public class Account {
     private Client owner;
     private BigDecimal balance;
     private List<String> operations;
-    int optIndex;
+    private int optIndex;
 
     public Account(String number, String status, Client owner, BigDecimal balance) {
         this.number = number;
@@ -21,6 +21,14 @@ public class Account {
 
     public String getNumber() {
         return number;
+    }
+
+    public int getOptIndex() {
+        return optIndex;
+    }
+
+    public void setOptIndex(int optIndex) {
+        this.optIndex = optIndex;
     }
 
     public List<String> getOperations() {

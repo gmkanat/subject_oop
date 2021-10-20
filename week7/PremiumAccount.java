@@ -15,14 +15,14 @@ public class PremiumAccount extends Account{
         newBalance = newBalance.add(new BigDecimal("150.00"));
         setBalance(newBalance);
         getOperations().add("Debit " + amount.toString() + " and cashback is 150 tenge.");
-        optIndex++;
+        setOptIndex(getOptIndex() + 1);
     }
     @Override
     public void paymentForService(){
         BigDecimal newBalance = getterBalance().subtract(new BigDecimal("4000.00"));
         setBalance(newBalance);
         getOperations().add("Payment for service: 4000");
-        optIndex++;
+        setOptIndex(getOptIndex() + 1);
     }
     @Override
     public String getBalance() {
